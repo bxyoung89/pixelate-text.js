@@ -24,27 +24,26 @@ var pixelateText = (function(){
 		d3.selectAll(target).each(function(){
 			var myTarget = d3.select(this);
 			var myTargetParent = d3.select(myTarget.node().parentNode);
-			if(myTargetParent.select("svg").empty()){
-				myTargetParent.append("svg")
+			if(myTargetParent.select("div.pixelate-contianer").empty()){
+				myTargetParent.append("div")
+					.classed("pixelate-contianer", true)
 					.attr("height", myTarget.attr("height"))
 					.attr("width", myTarget.attr("width"));
 			}
 			else{
-				myTargetParent.select("svg").selectAll("g").remove();
+				myTargetParent.select("div.pixelate-contianer").remove();
 			}
 			myTarget.remove();
-			var svg = myTargetParent.select("svg");
-			svg = svg.append("g");
+			var container = myTargetParent.select("div.pixelate-contianer");
 			var text = myTarget.text();
 			var data = makeLetterVms(text, pixelSize, typeface);
-			svg.selectAll("g.letter")
+			container.selectAll("svg")
 				.data(data)
 				.enter()
-				.append("g")
+				.append("svg")
+				.attr("height", typeface.gridHeight * pixelSize)
+				.attr("width", (typeface.gridWidth +1)* pixelSize)
 				.classed("letter", true)
-				.attr("transform", function(d){
-					return "translate ("+ d.start+", 0)";
-				})
 				.selectAll("rect.pixel")
 				.data(function(d){
 					return d.pixels;
@@ -61,7 +60,7 @@ var pixelateText = (function(){
 				.attr("height", pixelSize)
 				.attr("width", pixelSize)
 				.attr("fill", function(d){
-					return typeface.colors[d.color];
+					return typeface.colors[d.color % typeface.colors.length];
 				});
 		});
 
@@ -82,8 +81,7 @@ var pixelateText = (function(){
 			var vm = {
 				letter: letter,
 				index: x,
-				width: (typeface.gridWidth + 1) * sizeOfPixel,
-				start: x * (typeface.gridWidth + 1) * sizeOfPixel
+				width: (typeface.gridWidth + 1) * sizeOfPixel
 			};
 
 			var matchingLetter = getMatchingLetter(letter, typeface);

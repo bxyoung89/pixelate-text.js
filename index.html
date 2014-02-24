@@ -7,9 +7,24 @@
     <script src="typefaces/press%20start%202p.js"></script>
 </head>
 <body>
-    <span id="text" style="font-size: 100px">AAAA</span>
+    <div>
+        <span id="hello-world" style="font-size: 100px">hello world!</span>
+    </div>
+    <div>
+        <span id="text" style="font-size: 100px">ABCDEFGHIJKLMNOPQRSTUVWXYZ</span>
+    </div>
+    <div>
+        <span id="jamacia" style="font-size: 100px">Jamacia we have a bobsled team</span>
+    </div>
+
     <script>
+        var regularP2 = JSON.parse(JSON.stringify(pressStart2p));
+        regularP2.colors = ["black"];
+        pixelateText.pixelate("#hello-world", regularP2);
         pixelateText.pixelate("#text", pressStart2p);
+        var rastaP2 = JSON.parse(JSON.stringify(pressStart2p));
+        rastaP2.colors = ["black", "green", "red", "black", "red", "green", "black"];
+        pixelateText.pixelate("#jamacia", rastaP2);
     </script>
 </body>
 </html>
