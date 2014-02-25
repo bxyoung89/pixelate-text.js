@@ -13,6 +13,11 @@ var pressStart2p =
 			"pixels": [
 				{
 					"x": 0,
+					"y": 2,
+					"color": 0
+				},
+				{
+					"x": 0,
 					"y": 3,
 					"color": 0
 				},
@@ -30,6 +35,11 @@ var pressStart2p =
 					"x": 0,
 					"y": 6,
 					"color": 0
+				},
+				{
+					"x": 1,
+					"y": 1,
+					"color": 1
 				},
 				{
 					"x": 1,
@@ -102,8 +112,11 @@ var pressStart2p =
 					"y": 4,
 					"color": 4
 				},
-
-
+				{
+					"x": 5,
+					"y": 1,
+					"color": 5
+				},
 				{
 					"x": 5,
 					"y": 2,
@@ -129,7 +142,11 @@ var pressStart2p =
 					"y": 6,
 					"color": 5
 				},
-
+				{
+					"x": 6,
+					"y": 2,
+					"color": 6
+				},
 				{
 					"x": 6,
 					"y": 3,
@@ -2810,6 +2827,11 @@ var pressStart2p =
 				},
 				{
 					"x": 1,
+					"y": 3,
+					"color": 1
+				},
+				{
+					"x": 1,
 					"y": 5,
 					"color": 1
 				},
@@ -3917,11 +3939,6 @@ var pressStart2p =
 				{
 					"x": 4,
 					"y": 3,
-					"color": 4
-				},
-				{
-					"x": 4,
-					"y": 4,
 					"color": 4
 				},
 				{
