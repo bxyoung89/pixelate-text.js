@@ -1,8 +1,6 @@
 var pixelateText = (function(){
 
-
 	function PixelateText(){
-
 	}
 
 
@@ -57,6 +55,7 @@ var pixelateText = (function(){
 				.attr("y", function(d){
 					return d.y * pixelSize;
 				})
+				.style("shape-rendering", "crispEdges")
 				.attr("height", pixelSize)
 				.attr("width", pixelSize)
 				.attr("fill", function(d){
